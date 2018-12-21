@@ -186,20 +186,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($get_company->result() as $key) { ?>
+                                    <?php foreach($get_company->result() as $row) { ?>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td data-title="Nama Perusahaan"><?php echo $key->nama;?></td>
-                                        <td data-title="No Telepon"><?php echo $key->no_tlp;?></td>
-                                        <td data-title="Email Perusahaan"><?php echo $key->email;?></td>
-                                        <td data-title="Alamat Perusahaan"><?php echo $key->alamat;?></td>
+                                        <td><?php echo $no++; ?></td>
+                <td><?php echo $row->nama; ?></td>
+                <td><?php echo $row->no_tlp; ?></td>
+                <td><?php echo $row->email; ?></td>
+                <td><?php echo $row->alamat; ?></td>
                                         <td>
-                                        	<button type="button" class="btn btn-success waves-effect">
-			                                    <i class="material-icons">home</i>
-			                                </button>
-			                                <button type="button" class="btn btn-danger waves-effect">
-			                                    <i class="material-icons">flight_takeoff</i>
-			                                </button>
+                                        	<a href="<?php echo base_url()?>index.php/admin/editCompany/<?php echo $row->nama; ?>">edit</a>
+                    <a href="<?php echo base_url()?>index.php/admin/hapusCompany/<?php echo $row->nama; ?>" onclick="return confirm('anda yakin ingin menghapus data ini?');  ">delete</a>
                                         </td>
                                     </tr>
                                 </tbody>
